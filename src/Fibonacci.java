@@ -1,17 +1,20 @@
 import java.util.HashMap;
-
 public class Fibonacci {
 
-    private static final HashMap<Integer, Integer> numberToResultMap = new HashMap<>();
+    public static void main(String[] args) {
+        System.out.println(findFibonacciNumber(50));
+    }
 
-    public static int findFibonacciNumber(int index) {
+    private static final HashMap<Long, Long> numberToResultMap = new HashMap<>();
+
+    public static long findFibonacciNumber(long index) {
 
         if (index < 0) return -1;
         if (index <= 2) return 1;
         if (numberToResultMap.containsKey(index)) {
             return numberToResultMap.get(index);
         } else {
-            int sum = findFibonacciNumber(index - 1) + findFibonacciNumber(index - 2);
+            long sum = findFibonacciNumber(index - 1) + findFibonacciNumber(index - 2);
             numberToResultMap.put(index, sum);
             return sum;
         }
